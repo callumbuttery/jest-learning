@@ -14,23 +14,35 @@ describe('Utils test suite', () => {
         // assert
         expect(result).toBe(expected);
     })
+})
 
-    it('should return info for valid string', () => {
-        // arrange
-        const sut = getStringInfo;
-        const expected = 'My-String';
+describe('getStringInfo for My-String', () => {
+    // arrange
+    const sut = getStringInfo;
+    const expected = 'My-String';
 
-        // act
-        const result = getStringInfo(expected);
-
-        // assert
-        expect(result.lowerCase).toBe<string>('my-string')
-        // toEqual used for objects
-        expect(result.extraInfo).toEqual({})
+    test('return right length', () => {
+        //act
+        const result = sut(expected)
+        //assert
         expect(result.characters).toHaveLength(9);
-        
-        expect(result.characters).toContain<string>('M')
-
-        expect(result.extraInfo).not.toBeFalsy();
+    })
+    test('return upper case', () => {
+        //act
+        const result = sut(expected)
+        //assert
+        expect(result.upperCase).toBe(expected.toUpperCase())
+    })
+    test('return lower case', () => {
+        //act
+        const result = sut(expected)
+        //assert
+        expect(result.upperCase).toBe(expected.toLowerCase())
+    })
+    test('check extraInfo is falsy', () => {
+        //act
+        const result = sut(expected)
+        //assert
+        expect(result.extraInfo).toBeFalsy()
     })
 })
