@@ -46,3 +46,15 @@ describe('getStringInfo for My-String', () => {
         expect(result.extraInfo).toBeTruthy()
     })
 })
+
+describe.only('ToUpperCase examples', () => {
+    it.each([
+        {input:'abc', expected: 'ABC'},
+        {input: 'My-String', expected: ('My-String').toUpperCase()},
+    ])('$input toUpperCase should be $expected', ({input, expected}) => {
+        //act
+        const result = getStringInfo(input)
+        //assert
+        expect(result.upperCase).toBe(expected.toUpperCase())
+    });
+})
