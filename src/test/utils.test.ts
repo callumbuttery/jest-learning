@@ -37,12 +37,12 @@ describe('getStringInfo for My-String', () => {
         //act
         const result = sut(expected)
         //assert
-        expect(result.upperCase).toBe(expected.toLowerCase())
+        expect(result.lowerCase).toBe(expected.toLowerCase())
     })
-    test('check extraInfo is falsy', () => {
+    test('check extraInfo is truthy', () => {
         //act
         const result = sut(expected)
         //assert
-        expect(result.extraInfo).toBeFalsy()
+        expect(result.extraInfo).toBeTruthy()
     })
 })
