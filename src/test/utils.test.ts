@@ -24,8 +24,13 @@ describe('Utils test suite', () => {
         const result = getStringInfo(expected);
 
         // assert
-        expect(result.lowerCase).toBe('my-string')
+        expect(result.lowerCase).toBe<string>('my-string')
         // toEqual used for objects
         expect(result.extraInfo).toEqual({})
+        expect(result.characters).toHaveLength(9);
+        
+        expect(result.characters).toContain<string>('M')
+
+        expect(result.extraInfo).not.toBeFalsy();
     })
 })
